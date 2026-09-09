@@ -4,26 +4,6 @@ Projeto didático em Java (console) para o estudo do padrão arquitetural **MVC 
 
 Este repositório evolui a cada aula. Consulte o [Roadmap](#-roadmap--próximos-passos) para ver o que já foi coberto e o que vem a seguir.
 
-## Como executar
-
-Pré-requisito: JDK 17+ instalado.
-
-```bash
-# Compilar (a partir da raiz do projeto)
-javac -d out src/Main.java src/model/Contato.java src/model/ContatoDAO.java src/model/impl/*.java src/model/services/*.java
-
-# Executar
-java -cp out Main
-```
-
-Saída esperada:
-
-```
-Salvando contato no MySQL: Contato{id=null, nome='Enzo', telefone='1234567890', email='enzo@me.com'}
-```
-
----
-
 ## O que é MVC?
 
 **MVC (Model-View-Controller)** é um padrão arquitetural que organiza a aplicação em **três camadas com responsabilidades distintas**, de forma que cada parte do código tenha **um único motivo para mudar**. O objetivo central é a **separação de conceitos** (*separation of concerns*): a regra de negócio não deve depender de como os dados são exibidos, nem de onde eles são persistidos.
@@ -542,15 +522,15 @@ sequenceDiagram
 
 ## Roadmap — Próximos passos
 
-| Etapa | Conteúdo | Status |
-|---|---|---|
-| 1 | Divisão de conceitos nas camadas MVC | ✅ Concluído |
-| 2 | Model: Entidade, DAO/Repository (interface), implementações, Service | ✅ Concluído |
-| 3 | Inversão de Dependência, injeção via construtor e polimorfismo | ✅ Concluído |
-| 4 | DTOs (Data Transfer Objects) — separar o que entra/sai do que é persistido | ⬜ Em breve |
-| 5 | Validadores dedicados — extrair validações do Service | ⬜ Em breve |
-| 6 | Camada Controller — orquestrar as ações do usuário | ⬜ Em breve |
-| 7 | Camada View — menus e interação no console | ⬜ Em breve |
+| Etapa | Conteúdo                                                                        | Status |
+|---|---------------------------------------------------------------------------------|---|
+| 1 | Divisão de conceitos nas camadas MVC                                            | ✅ Concluído |
+| 2 | Model: Entidade, DAO/Repository (interface), implementações, Service            | ✅ Concluído |
+| 3 | Inversão de Dependência, injeção via construtor e polimorfismo                  | ✅ Concluído |
+| 4 | DTOs (Data Transfer Objects) — separar o que entra/sai do que é persistido      | ⬜ Em breve |
+| 5 | Validadores dedicados — criar validações do Service                             | ⬜ Em breve |
+| 6 | Camada Controller — orquestrar as ações do usuário                              | ⬜ Em breve |
+| 7 | Camada View — menus e interação no console                                      | ⬜ Em breve |
 | 8 | Persistência real — JDBC no `ContatoMySqlDAO` e coleções no `ContatoMemoriaDAO` | ⬜ Em breve |
 
 > Este README é atualizado a cada etapa concluída. Se você perdeu uma aula, refaça o [Tutorial](#-tutorial-reproduzindo-o-código-atual) e acompanhe pelo roadmap.

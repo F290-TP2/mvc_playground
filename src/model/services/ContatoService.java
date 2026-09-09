@@ -16,4 +16,9 @@ public class ContatoService {
         }
         dao.salvar(contato);
     }
+
+    //TODO: Implementar os metodos de validação para os métodos de excluir, buscar, atualizar e buscarTodos
+
+    //TODO: Implementar os métodos de excluir, buscar, atualizar e buscarTodos com validações necessárias
+
 }
