@@ -1,7 +1,7 @@
-package model.impl;
+package model.daos.impl;
 
-import model.Contato;
-import model.ContatoDAO;
+import model.domain.Contato;
+import model.daos.ContatoDAO;
 
 import java.util.List;
 

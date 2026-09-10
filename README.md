@@ -371,13 +371,19 @@ Crie `src/model/ContatoDAO.java`. Definimos **o que** pode ser feito com contato
 ```java
 package model;
 
+import model.domain.Contato;
+
 import java.util.List;
 
 public interface ContatoDAO {
     void salvar(Contato contato);
+
     void excluir(Integer id);
+
     Contato buscar(Integer id);
+
     Contato atualizar(Contato contato);
+
     List<Contato> buscarTodos();
 }
 ```
@@ -389,38 +395,44 @@ public interface ContatoDAO {
 Crie `src/model/impl/ContatoMemoriaDAO.java` e `src/model/impl/ContatoMySqlDAO.java`. Duas estratégias de persistência, o mesmo contrato.
 
 ```java
-package model.impl;
+package model.daos.impl;
 
-import model.Contato;
-import model.ContatoDAO;
+import model.domain.Contato;
 
 import java.util.List;
 
-public class ContatoMemoriaDAO implements ContatoDAO {
+public class ContatoMemoriaDAO implements model.daos.ContatoDAO {
     @Override
     public void salvar(Contato contato) {
         System.out.println("Salvando contato na memória: " + contato);
     }
 
     @Override
-    public void excluir(Integer id) { }
+    public void excluir(Integer id) {
+    }
 
     @Override
-    public Contato buscar(Integer id) { return null; }
+    public Contato buscar(Integer id) {
+        return null;
+    }
 
     @Override
-    public Contato atualizar(Contato contato) { return null; }
+    public Contato atualizar(model.domain.Contato contato) {
+        return null;
+    }
 
     @Override
-    public List<Contato> buscarTodos() { return List.of(); }
+    public List<Contato> buscarTodos() {
+        return List.of();
+    }
 }
 ```
 
 ```java
-package model.impl;
+package model.daos.impl;
 
-import model.Contato;
-import model.ContatoDAO;
+import model.domain.Contato;
+import model.daos.ContatoDAO;
 
 import java.util.List;
 
@@ -431,16 +443,23 @@ public class ContatoMySqlDAO implements ContatoDAO {
     }
 
     @Override
-    public void excluir(Integer id) { }
+    public void excluir(Integer id) {
+    }
 
     @Override
-    public Contato buscar(Integer id) { return null; }
+    public Contato buscar(Integer id) {
+        return null;
+    }
 
     @Override
-    public Contato atualizar(Contato contato) { return null; }
+    public Contato atualizar(Contato contato) {
+        return null;
+    }
 
     @Override
-    public List<Contato> buscarTodos() { return List.of(); }
+    public List<Contato> buscarTodos() {
+        return List.of();
+    }
 }
 ```
 
@@ -453,8 +472,9 @@ Crie `src/model/services/ContatoService.java`. Aqui entra a primeira **regra de 
 ```java
 package model.services;
 
-import model.Contato;
-import model.ContatoDAO;
+import model.domain.Contato;
+import model.daos.ContatoDAO;
+import model.domain.Contato;
 
 public class ContatoService {
     private final ContatoDAO dao;
@@ -463,7 +483,7 @@ public class ContatoService {
         this.dao = dao;
     }
 
-    public void salvar(Contato contato) {
+    public void salvar(model.domain.Contato contato) {
         if (contato.getId() != null) {
             throw new IllegalArgumentException("O ID do contato deve ser maior que zero.");
         }
@@ -479,9 +499,8 @@ public class ContatoService {
 Crie `src/Main.java`. A `Main` é o **ponto de composição**: o único lugar que conhece as implementações concretas e as conecta.
 
 ```java
-import model.Contato;
-import model.impl.ContatoMemoriaDAO;
-import model.impl.ContatoMySqlDAO;
+import model.domain.Contato;
+import model.daos.impl.ContatoMySqlDAO;
 import model.services.ContatoService;
 
 public class Main {

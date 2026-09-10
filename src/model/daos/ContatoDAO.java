@@ -1,4 +1,6 @@
-package model;
+package model.daos;
+
+import model.domain.Contato;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package model.services;
 
-import model.Contato;
-import model.ContatoDAO;
+import model.domain.Contato;
+import model.daos.ContatoDAO;
 
 public class ContatoService {
     private final ContatoDAO dao;
